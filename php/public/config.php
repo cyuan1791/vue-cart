@@ -48,4 +48,4 @@ DOMAIN=http://localhost:4242</pre>
   exit;
 }
 
-echo json_encode([$_ENV['STRIPE_PUBLISHABLE_KEY']]);
+echo json_encode(array ('publishableKey' => $_ENV['STRIPE_PUBLISHABLE_KEY']));

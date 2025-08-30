@@ -34,6 +34,10 @@ const count = computed(() => cartStore.count)
             Cart
             <div class="badge ml-2 badge-outline" v-text="count" />
           </router-link>
+          <router-link to="/checkout">
+            Checkout
+            <div class="badge ml-2 badge-outline" v-text="count" />
+          </router-link>
         </li>
       </ul>
     </div>
