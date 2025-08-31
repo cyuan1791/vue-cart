@@ -8,6 +8,7 @@ import CartCardSkeleton from '../components/CartCardSkeleton.vue'
 import { toCurrency, asoneArea, asonePath, fetchData } from '../shared/utils'
 import { useCartStore } from '../store/cart'
 import { useProductStore } from '../store/products'
+import { i } from "vite/dist/node/types.d-aGj9QkWt";
 
 
 const cartStore = useCartStore()
@@ -23,11 +24,13 @@ const messages = ref([]);
 let stripe;
 //@ts-ignore
 let elements;
+let intentedCalled = false;
 
 let callIntent = async (cartStore: any) => {
     if (!productStore.loaded)
         return;
-    console.log('totala:', parseInt(cartStore.total) * 100);
+    if (!intentedCalled)
+        console.log('totala:', parseInt(cartStore.total) * 100);
 
     const { publishableKey } = await fetch(`${window.location.origin}/${asonePath}/${asoneArea}/ws/php/public/config.php`).then((res) => res.json());
     stripe = await loadStripe(publishableKey);
@@ -36,6 +39,7 @@ let callIntent = async (cartStore: any) => {
         `${window.location.origin}/${asonePath}/${asoneArea}/ws/php/public/createintent.php`,
         parseInt(cartStore.total) * 100
     );
+    intentedCalled = true;
     console.log("Fetched data:", { clientSecret, data, backendError });
 
 
@@ -69,8 +73,8 @@ const handleSubmit = async () => {
         //@ts-ignore
         elements,
         confirmParams: {
+            // must privide url with https://
             return_url: `${window.location.origin}/`,
-            //return_url: `${window.location.origin}/${asonePath}/return`,
 
         }
     });
