@@ -39,9 +39,11 @@ export const useProductStore = defineStore({
     async fetchAll() {
       console.log("Fetching products...");
       if (this.loaded) return;
-      console.log(`asoneDate: ${asoneData}`);
-      const res = await fetch(`${fakeStoreUrl}/products`);
-      const data: Product[] = await res.json();
+      //const jstr = JSON.stringify(asoneData[0]);
+      //console.log(`asoneDate: ${jstr})`);
+      //const res = await fetch(`${fakeStoreUrl}/products`);
+      //const data: Product[] = await res.json();
+      const data: Product[] = asoneData;
       this.ids = data.map((product) => {
         this.items[product.id] = product;
         return product.id;
