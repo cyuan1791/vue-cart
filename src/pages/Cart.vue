@@ -2,15 +2,26 @@
 import { computed } from 'vue'
 import CartCard from '../components/CartCard.vue'
 import CartCardSkeleton from '../components/CartCardSkeleton.vue'
-import { toCurrency } from '../shared/utils'
 import { useCartStore } from '../store/cart'
 import { useProductStore } from '../store/products'
+import { useRouter } from 'vue-router';
+import { toCurrency, asoneArea, asonePath, fetchData } from '../shared/utils'
+
+
+const router = useRouter();
+
+
 
 const cartStore = useCartStore()
 const productStore = useProductStore()
 
 const formattedCart = computed(() => cartStore.formattedCart)
 
+const handleClick = () => {
+  console.log('Button clicked!, cartStore.total:', cartStore.total);
+  //cartStore.clear();
+  router.push(`checkout`);
+};
 
 </script>
 
@@ -29,6 +40,8 @@ const formattedCart = computed(() => cartStore.formattedCart)
       <div class="text-right text-2xl md:text-4xl">
         Total: {{ toCurrency(cartStore.total) }}
       </div>
+      <a @click="handleClick" class="btn btn-primary btn-lg float-right">Checkout</a>
+
     </div>
   </div>
 </template>

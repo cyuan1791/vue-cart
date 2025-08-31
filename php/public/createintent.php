@@ -20,7 +20,7 @@ try {
 } catch (\Stripe\Exception\ApiErrorException $e) {
     http_response_code(400);
 
-    echo json_encode(['clientSecret' => "", 'adata' => $json_data, 'error' => $e->getError()->message]);
+    echo json_encode(value: ['clientSecret' => "", 'adata' => $json_data, 'error' => $e->getError()->message]);
     exit;
 } catch (Exception $e) {
     error_log($e);

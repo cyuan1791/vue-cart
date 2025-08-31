@@ -9,6 +9,7 @@ import { toCurrency, asoneArea, asonePath, fetchData } from '../shared/utils'
 import { useCartStore } from '../store/cart'
 import { useProductStore } from '../store/products'
 
+
 const cartStore = useCartStore()
 const productStore = useProductStore()
 
@@ -55,9 +56,11 @@ let callIntent = async (cartStore: any) => {
 };
 
 const handleSubmit = async () => {
+
     if (isLoading.value) {
         return;
     }
+    cartStore.clear();
 
     isLoading.value = true;
 
@@ -66,7 +69,9 @@ const handleSubmit = async () => {
         //@ts-ignore
         elements,
         confirmParams: {
-            return_url: `${window.location.origin}/return`
+            return_url: `${window.location.origin}/`,
+            //return_url: `${window.location.origin}/${asonePath}/return`,
+
         }
     });
 

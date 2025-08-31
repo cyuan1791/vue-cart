@@ -4,14 +4,23 @@ const formatter = new Intl.NumberFormat("en-US", {
   currency: "USD",
 });
 
-export async function fetchData(url, amount = 1000, currency = "USD") {
+export async function fetchData(
+  url,
+  amount = 1000,
+  currency = "USD",
+  paymment_intent = ""
+) {
   try {
     var options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: amount, currency: currency }),
+      body: JSON.stringify({
+        amount: amount,
+        currency: currency,
+        paymment_intent: paymment_intent,
+      }),
     };
     // 1. Fetch the resource
     const response = await fetch(url, options);
