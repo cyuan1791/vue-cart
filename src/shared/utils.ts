@@ -1,19 +1,18 @@
 //@ts-nocheck
-const formatter = new Intl.NumberFormat('en-US', {
-  style: 'currency',
-  currency: 'USD',
-})
+const formatter = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
 
-
-export async function fetchData(url, amount = 1000, currency = 'eur') {
+export async function fetchData(url, amount = 1000, currency = "USD") {
   try {
     var options = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ amount: amount, currency: currency })
-    }
+      body: JSON.stringify({ amount: amount, currency: currency }),
+    };
     // 1. Fetch the resource
     const response = await fetch(url, options);
 
@@ -34,11 +33,11 @@ export async function fetchData(url, amount = 1000, currency = 'eur') {
     throw error;
   }
 }
-export const toCurrency = (value: number) => formatter.format(value)
+export const toCurrency = (value: number) => formatter.format(value);
 export const asoneModName = window.asoneModName;
 export const asoneId = window.asoneId;
 export const asoneIdx = window.asoneIdx;
 export const asonePath = window.asonePath;
 export const asoneArea = window.asoneArea;
 export const asoneLoc = window.asoneLoc;
-export const asoneData = window.asoneData;
+export const asoneData = JSON.parse(atob(window.asoneData));

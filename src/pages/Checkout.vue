@@ -17,6 +17,7 @@ const formattedCart = computed(() => cartStore.formattedCart)
 const isLoading = ref(false);
 const messages = ref([]);
 
+
 //@ts-ignore
 let stripe;
 //@ts-ignore
