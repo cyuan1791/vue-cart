@@ -10,6 +10,8 @@ const cartStore = useCartStore()
 const productStore = useProductStore()
 
 const formattedCart = computed(() => cartStore.formattedCart)
+
+
 </script>
 
 <template>
@@ -23,11 +25,7 @@ const formattedCart = computed(() => cartStore.formattedCart)
       </h1>
     </div>
     <div v-else class="space-y-4">
-      <CartCard
-        v-for="(cartProduct, index) in formattedCart"
-        :key="index"
-        :cart-product="cartProduct"
-      />
+      <CartCard v-for="(cartProduct, index) in formattedCart" :key="index" :cart-product="cartProduct" />
       <div class="text-right text-2xl md:text-4xl">
         Total: {{ toCurrency(cartStore.total) }}
       </div>

@@ -9,6 +9,11 @@ import { toCurrency, asoneArea, asonePath, fetchData } from '../shared/utils'
 import { useCartStore } from '../store/cart'
 import { useProductStore } from '../store/products'
 
+const cartStore = useCartStore()
+const productStore = useProductStore()
+
+const formattedCart = computed(() => cartStore.formattedCart)
+
 const isLoading = ref(false);
 const messages = ref([]);
 
@@ -17,12 +22,20 @@ let stripe;
 //@ts-ignore
 let elements;
 
-onMounted(async () => {
+let callIntent = async (cartStore: any) => {
+    if (!productStore.loaded)
+        return;
+    console.log('totala:', parseInt(cartStore.total) * 100);
+
     const { publishableKey } = await fetch(`${window.location.origin}/${asonePath}/${asoneArea}/ws/php/public/config.php`).then((res) => res.json());
     stripe = await loadStripe(publishableKey);
 
-    const { clientSecret, error: backendError } = await fetchData(`${window.location.origin}/${asonePath}/${asoneArea}/ws/php/public/createintent.php`);
-    console.log("Fetched data:", { clientSecret, backendError });
+    const { clientSecret, data, error: backendError } = await fetchData(
+        `${window.location.origin}/${asonePath}/${asoneArea}/ws/php/public/createintent.php`,
+        parseInt(cartStore.total) * 100
+    );
+    console.log("Fetched data:", { clientSecret, data, backendError });
+
 
     if (backendError) {
         // @ts-ignore
@@ -38,7 +51,7 @@ onMounted(async () => {
     const linkAuthenticationElement = elements.create("linkAuthentication");
     linkAuthenticationElement.mount("#link-authentication-element");
     isLoading.value = false;
-});
+};
 
 const handleSubmit = async () => {
     if (isLoading.value) {
@@ -67,10 +80,6 @@ const handleSubmit = async () => {
     isLoading.value = false;
 }
 
-const cartStore = useCartStore()
-const productStore = useProductStore()
-
-const formattedCart = computed(() => cartStore.formattedCart)
 </script>
 
 <template>
@@ -90,6 +99,7 @@ const formattedCart = computed(() => cartStore.formattedCart)
             </button>
             <sr-messages :messages="messages" />
         </form>
+        {{ callIntent(cartStore) }}
     </main>
     <!-- <div class="p-4 max-w-4xl mx-auto">
 

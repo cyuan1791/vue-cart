@@ -36,6 +36,7 @@ export const useProductStore = defineStore({
 
   actions: {
     async fetchAll() {
+
       if (this.loaded)
         return
 
