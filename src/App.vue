@@ -26,6 +26,11 @@ const count = computed(() => cartStore.count)
       <ul class="p-4 overflow-y-auto menu w-80 bg-base-100 text-base-content">
         <li>
           <router-link to="/">
+            Main Home
+          </router-link>
+        </li>
+        <li>
+          <router-link to="/">
             Home
           </router-link>
         </li>

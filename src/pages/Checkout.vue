@@ -94,38 +94,18 @@ const handleSubmit = async () => {
 
 <template>
     <main>
-        <h1>Payment</h1>
-
-        <p>
-            Enable more payment method types
-            <a href="https://dashboard.stripe.com/settings/payment_methods" target="_blank">in your dashboard</a>.
-        </p>
 
         <form id="payment-form" @submit.prevent="handleSubmit">
             <div id="link-authentication-element" />
             <div id="payment-element" />
-            <button id="submit" :disabled="isLoading">
+            <button class="btn btn-primary" id="submit" :disabled="isLoading">
                 Pay now
             </button>
-            <sr-messages :messages="messages" />
+            <!-- <sr-messages :messages="messages" /> -->
         </form>
-        {{ callIntent(cartStore) }}
+        <div style="display:none;">
+            {{ callIntent(cartStore) }}
+        </div>
     </main>
-    <!-- <div class="p-4 max-w-4xl mx-auto">
 
-        <div v-if="!productStore.loaded" class="space-y-4">
-            <CartCardSkeleton v-for="n in 15" :key="n" />
-        </div>
-        <div v-else-if="!formattedCart.length">
-            <h1 class="text-xl">
-                Cart is empty.
-            </h1>
-        </div>
-        <div v-else class="space-y-4">
-            <CartCard v-for="(cartProduct, index) in formattedCart" :key="index" :cart-product="cartProduct" />
-            <div class="text-right text-2xl md:text-4xl">
-                Total: {{ toCurrency(cartStore.total) }}
-            </div>
-        </div>
-    </div> -->
 </template>
