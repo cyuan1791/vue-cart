@@ -11,7 +11,7 @@ try {
         'automatic_payment_methods' => ['enabled' => true],
         'amount'                    => (int) ($data['amount']),
         //'amount' => 1099,
-        'currency'                  => 'eur',
+        'currency'                  => $data['currency'],
     ]);
     $clientSecret = $paymentIntent->client_secret;
     echo json_encode(['clientSecret' => $clientSecret, 'data' => 'jsondtb' . $data['amount'], 'error' => ""]);
