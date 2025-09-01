@@ -11,13 +11,13 @@ const cartStore = useCartStore()
 </script>
 
 <template>
-  <div class="col-12 col-md-3"></div>
-  <div class="col-12 col-md-3">
+  <div class="col-12 col-md-3 mb-1"></div>
+  <div class="col-12 col-md-3 mb-1">
 
 
     <img :src="cartProduct.image" alt="Card Image" class="img-fluid">
   </div>
-  <div class="col-12 col-md-3">
+  <div class="col-12 col-md-3 mb-1">
     <div class=" card-body">
       <h5 class="card-title">
         <router-link class="link link-hover" :to="`/product/${cartProduct.id}`">
@@ -40,5 +40,5 @@ const cartStore = useCartStore()
       </div>
     </div>
   </div>
-  <div class="col-12 col-md-3"></div>
+  <div class="col-12 col-md-3 mb-1"></div>
 </template>

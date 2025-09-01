@@ -37,24 +37,24 @@ const handleClick = () => {
   </div>
   <div v-else class="row">
     <CartCard v-for="(cartProduct, index) in formattedCart" :key="index" :cart-product="cartProduct" />
-    <div class="col-sm-12 col-md-3"></div>
+    <div class="col-sm-12 col-md-3 mb-1"></div>
 
 
-    <div class="col-sm-12 col-md-6">
+    <div class="col-sm-12 col-md-6 mb-1">
       <hr />
     </div>
-    <div class="col-sm-12 col-md-3"></div>
-    <div class="col-sm-12 col-md-5"></div>
+    <div class="col-sm-12 col-md-3 mb-1"></div>
+    <div class="col-sm-12 col-md-5 mb-1"></div>
 
 
-    <div class="col-sm-12 col-md-2"> Total: {{ toCurrency(cartStore.total) }}
+    <div class="col-sm-12 col-md-2 mb-1"> Total: {{ toCurrency(cartStore.total) }}
     </div>
-    <div class="col-sm-12 col-md-2">
+    <div class="col-sm-12 col-md-2 mb-1">
 
       <a @click="handleClick" class="btn btn-primary  float-right">Checkout</a>
     </div>
 
-    <div class="col-sm-12 col-md-3"></div>
+    <div class="col-sm-12 col-md-3 mb-1"></div>
 
   </div>
 </template>
