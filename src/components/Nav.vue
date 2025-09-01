@@ -12,11 +12,12 @@ const count = computed(() => cartStore.count)
   <div class="d-flex justify-content-center ">
     <div class="btn-group m-4 p-3 w-75 bg-success-subtle" role="group" aria-label="Basic mixed styles example">
       <router-link class="btn btn-ghost rounded-btn" to="/">
-        Shop-Home
+        <span class="btn btn-outline-dark"> Shop </span>
       </router-link>
-      <router-link class="btn btn-ghost rounded-btn" to="/cart">
-        Cart
-        <div class="badge text-bg-secondary" v-text="count" />
+      <router-link class="btn  rounded-btn" to="/cart">
+        <span class="btn btn-outline-danger"> Cart &nbsp;&nbsp;
+          <div class="badge text-bg-secondary" v-text="count" />
+        </span>
       </router-link>
       <Search />
     </div>

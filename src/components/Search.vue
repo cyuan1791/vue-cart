@@ -24,10 +24,10 @@ function navigate(id: number) {
 
 <template>
 
-  <div class="d-flex justify-content-center" style="z-index: 1000;">
+  <div class="d-flex justify-content-center p-2" style="z-index: 1000;max-height: 60px;">
     <ul>
       <li>
-        <input class="btn btn-outline-warning" v-model="input" type="text" placeholder="Search..."
+        <input class="btn btn-outline-success" v-model="input" type="text" placeholder="Search..."
           :disabled="!productStore.loaded">
       </li>
       <li v-for="product in searchResults" :key="product.id">&nbsp;&nbsp;
