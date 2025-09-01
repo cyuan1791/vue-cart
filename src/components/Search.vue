@@ -23,7 +23,20 @@ function navigate(id: number) {
 </script>
 
 <template>
-  <div class="dropdown dropdown-end">
+
+  <div class="d-flex justify-content-center" style="height: 70px;z-index: 1000;">
+    <ul>
+      <li>
+        <input class="btn btn-info m-2" v-model="input" type="text" placeholder="Search..."
+          :disabled="!productStore.loaded">
+      </li>
+      <li v-for="product in searchResults" :key="product.id">&nbsp;&nbsp;
+        <a class="bg-light m-2" href="#" @click.prevent="navigate(product.id)" v-text="product.title" />
+      </li>
+    </ul>
+  </div>
+
+  <!-- <div class="dropdown dropdown-end">
     <div class="form-control">
       <input v-model="input" type="text" placeholder="Search..." class="input input-ghost" :disabled="!productStore.loaded">
     </div>
@@ -32,5 +45,20 @@ function navigate(id: number) {
         <a href="#" @click.prevent="navigate(product.id)" v-text="product.title" />
       </li>
     </ul>
-  </div>
+  </div> -->
 </template>
+<style>
+ul {
+  list-style-type: none;
+}
+
+ul li a:hover {
+  color: red;
+}
+
+ul li a {
+  text-decoration: none;
+  color: black;
+  padding: 8px 15px;
+}
+</style>

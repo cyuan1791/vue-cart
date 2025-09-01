@@ -16,7 +16,6 @@ const count = computed(() => cartStore.count)
 
 <template>
   <div class="drawer">
-    <input id="drawer-input" type="checkbox" class="drawer-toggle">
     <div class="bg-base-100 text-base-content min-h-screen drawer-content">
       <Nav />
       <router-view />
@@ -24,11 +23,6 @@ const count = computed(() => cartStore.count)
     <div class="drawer-side">
       <label for="drawer-input" class="drawer-overlay" />
       <ul class="p-4 overflow-y-auto menu w-80 bg-base-100 text-base-content">
-        <li>
-          <router-link to="/">
-            Main Home
-          </router-link>
-        </li>
         <li>
           <router-link to="/">
             Home

@@ -94,17 +94,19 @@ const handleSubmit = async () => {
 
 <template>
     <main>
+        <div class="p-4">
 
-        <form id="payment-form" @submit.prevent="handleSubmit">
-            <div id="link-authentication-element" />
-            <div id="payment-element" />
-            <button class="btn btn-primary" id="submit" :disabled="isLoading">
-                Pay now
-            </button>
-            <!-- <sr-messages :messages="messages" /> -->
-        </form>
-        <div style="display:none;">
-            {{ callIntent(cartStore) }}
+            <form id="payment-form" @submit.prevent="handleSubmit">
+                <div id="link-authentication-element" />
+                <div id="payment-element" />
+                <button class="btn btn-primary w-100" id="submit" :disabled="isLoading">
+                    Pay now
+                </button>
+                <!-- <sr-messages :messages="messages" /> -->
+            </form>
+            <div style="display:none;">
+                {{ callIntent(cartStore) }}
+            </div>
         </div>
     </main>
 
