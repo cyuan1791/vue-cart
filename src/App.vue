@@ -22,7 +22,7 @@ const count = computed(() => cartStore.count)
     </div>
     <div class="drawer-side">
       <label for="drawer-input" class="drawer-overlay" />
-      <ul class="p-4 overflow-y-auto menu w-80 bg-base-100 text-base-content">
+      <!-- <ul class="p-4 overflow-y-auto menu w-80 bg-base-100 text-base-content">
         <li>
           <router-link to="/">
             Home
@@ -38,7 +38,7 @@ const count = computed(() => cartStore.count)
             <div class="badge ml-2 badge-outline" v-text="count" />
           </router-link>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </template>

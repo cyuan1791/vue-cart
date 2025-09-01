@@ -27,7 +27,7 @@ function navigate(id: number) {
   <div class="d-flex justify-content-center" style="height: 70px;z-index: 1000;">
     <ul>
       <li>
-        <input class="btn btn-info m-2" v-model="input" type="text" placeholder="Search..."
+        <input class="btn btn-outline-warning m-2" v-model="input" type="text" placeholder="Search..."
           :disabled="!productStore.loaded">
       </li>
       <li v-for="product in searchResults" :key="product.id">&nbsp;&nbsp;
