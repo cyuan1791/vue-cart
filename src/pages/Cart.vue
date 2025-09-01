@@ -30,9 +30,10 @@ const handleClick = () => {
     <CartCardSkeleton v-for="n in 15" :key="n" />
   </div>
   <div v-else-if="!formattedCart.length">
-    <h1 class="text-xl">
+    <div class="alert alert-primary" role="alert">
       Cart is empty.
-    </h1>
+    </div>
+
   </div>
   <div v-else class="row">
     <CartCard v-for="(cartProduct, index) in formattedCart" :key="index" :cart-product="cartProduct" />

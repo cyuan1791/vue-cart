@@ -20,35 +20,33 @@ const product = computed<Product>(
 </script>
 
 <template>
-  <div class="p-4 max-w-4xl mx-auto">
-    <div v-if="!productStore.loaded">
-      <CartCardSkeleton />
-    </div>
-    <div v-else-if="product" class="card lg:card-side bordered">
-      <figure class="px-10 pt-10">
-        <img
-          :src="product.image"
-          alt="Card Image"
-          class="object-contain w-full h-64"
-        >
-      </figure>
-      <div class="card-body">
-        <h2 class="card-title" v-text="product.title" />
-        <p v-text="product.description" />
-        <p class="mt-4 text-lg">
-          {{ toCurrency(product.price) }}
-        </p>
-        <div class="card-actions">
-          <button class="btn btn-primary" @click="cartStore.add(product.id)">
-            Add to Cart
-          </button>
+  <div class="row">
+    <div class="col-sm-12 col-md-3"></div>
+    <div class="col-sm-12 col-md-6 p-4">
+      <div v-if="!productStore.loaded">
+        <CartCardSkeleton />
+      </div>
+      <div v-else-if="product" class="card">
+        <img :src="product.image" alt="Card Image" class="card-img-top">
+        <div class="card-body">
+          <h3 class="card-title" v-text="product.title" />
+          <p v-text="product.description" />
+          <p class="mt-4 text-lg">
+            {{ toCurrency(product.price) }}
+          </p>
+          <div class="card-actions">
+            <button class="btn btn-primary" @click="cartStore.add(product.id)">
+              Add to Cart
+            </button>
+          </div>
         </div>
       </div>
+      <div v-else>
+        <h1 class="text-xl text-error">
+          No product found with id {{ route.params.productId }}
+        </h1>
+      </div>
     </div>
-    <div v-else>
-      <h1 class="text-xl text-error">
-        No product found with id {{ route.params.productId }}
-      </h1>
-    </div>
+    <div class="col-sm-12 col-md-3"></div>
   </div>
 </template>
