@@ -18,7 +18,7 @@ const cartStore = useCartStore()
     <img v-if="cartProduct.image" :src="cartProduct.image" alt="Card Image"
       class="card-img-top object-contain w-full h-64">
 
-    <div class="card-img-top" v-if="cartProduct.svg" v-html="cartProduct.svg"></div>
+    <div class="card-img-top" v-else-if="cartProduct.svg" v-html="cartProduct.svg"></div>
 
   </div>
   <div class="col-12 col-md-3 mb-1">
