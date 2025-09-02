@@ -8,7 +8,6 @@ import { useRouter } from 'vue-router';
 const router = useRouter();
 
 setTimeout(() => {
-  console.log('Redirecting to home page...');
   const r = router.push(`/`);
 }, 2000);
 
