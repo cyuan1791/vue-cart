@@ -23,23 +23,27 @@ const cartStore = useCartStore()
   </div>
   <div class="col-12 col-md-3 mb-1">
     <div class=" card-body">
-      <h5 class="card-title">
-        <router-link class="link link-hover" :to="`/product/${cartProduct.id}`">
-          {{ cartProduct.title }}
-        </router-link>
-      </h5>
-      <p>{{ toCurrency(cartProduct.cost) }}</p>
-      <div class="card-actions">
-        <div class="btn-group">
-          <button class="btn btn-primary btn-sm" @click="cartStore.remove(cartProduct.id)">
-            -
-          </button>
-          <button class="btn btn-ghost no-animation">
-            {{ cartProduct.quantity }}
-          </button>
-          <button class="btn btn-primary btn-sm" @click="cartStore.add(cartProduct.id)">
-            +
-          </button>
+      <div class="p-3 mx-auto" style="display: flex; justify-content: center; align-items: center; max-width: 800px;">
+        <div>
+          <h5 class="card-title">
+            <router-link class="link link-hover" :to="`/product/${cartProduct.id}`">
+              {{ cartProduct.title }}
+            </router-link>
+          </h5>
+          <p>{{ toCurrency(cartProduct.cost) }}</p>
+          <div class="card-actions">
+            <div class="btn-group">
+              <button class="btn btn-primary btn-sm" @click="cartStore.remove(cartProduct.id)">
+                -
+              </button>
+              <button class="btn btn-ghost no-animation">
+                {{ cartProduct.quantity }}
+              </button>
+              <button class="btn btn-primary btn-sm" @click="cartStore.add(cartProduct.id)">
+                +
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
