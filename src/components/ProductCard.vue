@@ -13,7 +13,10 @@ const cartStore = useCartStore()
 <template>
   <div class="col-sm-12 col-md-4 p-4">
     <div class="card h-100">
-      <img :src="product.image" alt="Card Image" class="card-img-top object-contain w-full h-64">
+      <img v-if="product.image" :src="product.image" alt="Card Image" class="card-img-top object-contain w-full h-64">
+
+      <div class="card-img-top" v-if="product.svg" v-html="product.svg"></div>
+
       <div class="card-body">
         <h2 class="card-title">
           <router-link class="link link-hover" :to="`/product/${product.id}`">

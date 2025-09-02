@@ -15,6 +15,7 @@ export interface CartPreview {
   id: number;
   image: string;
   title: string;
+  svg: string;
   quantity: number;
   cost: number;
 }
@@ -51,6 +52,7 @@ export const useCartStore = defineStore({
         return {
           id: purchase.productId,
           image: products.items[purchase.productId].image,
+          svg: products.items[purchase.productId].svg,
           title: products.items[purchase.productId].title,
           quantity: purchase.quantity,
           cost: purchase.quantity * products.items[purchase.productId].price,
