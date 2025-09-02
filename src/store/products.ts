@@ -38,7 +38,7 @@ export const useProductStore = defineStore({
 
   actions: {
     async fetchAll() {
-      console.log("Fetching products...");
+      //console.log("Fetching products...");
       if (this.loaded) return;
       //const jstr = JSON.stringify(asoneData[0]);
       //console.log(`asoneDate: ${jstr})`);
@@ -49,7 +49,7 @@ export const useProductStore = defineStore({
         this.items[product.id] = product;
         return product.id;
       });
-      console.log(`Fetched ${this.ids.length} products.`);
+      //console.log(`Fetched ${this.ids.length} products.`);
     },
   },
 });
