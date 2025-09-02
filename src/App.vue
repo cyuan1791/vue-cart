@@ -15,13 +15,9 @@ const count = computed(() => cartStore.count)
 </script>
 
 <template>
-  <div class="drawer p-4">
-    <div class="bg-base-100 text-base-content min-h-screen drawer-content">
-      <Nav />
-      <router-view />
-    </div>
-    <div class="drawer-side">
-      <label for="drawer-input" class="drawer-overlay" />
-    </div>
-  </div>
+
+  <Nav />
+  <router-view />
+
+
 </template>

@@ -93,9 +93,9 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-    <main>
-        <div class="p-4">
-
+    <div class="row">
+        <div class="col-12 col-md-3 mb-1"></div>
+        <div class="col-12 col-md-6 mb-1">
             <form id="payment-form" @submit.prevent="handleSubmit">
                 <div id="link-authentication-element" />
                 <div id="payment-element" />
@@ -108,6 +108,11 @@ const handleSubmit = async () => {
                 {{ callIntent(cartStore) }}
             </div>
         </div>
-    </main>
+        <div class="col-12 col-md-3 mb-1"></div>
+    </div>
+
+
+
+
 
 </template>
