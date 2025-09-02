@@ -15,7 +15,11 @@ const cartStore = useCartStore()
   <div class="col-12 col-md-3 mb-1">
 
 
-    <img :src="cartProduct.image" alt="Card Image" class="img-fluid">
+    <img v-if="cartProduct.image" :src="cartProduct.image" alt="Card Image"
+      class="card-img-top object-contain w-full h-64">
+
+    <div class="card-img-top" v-if="cartProduct.svg" v-html="cartProduct.svg"></div>
+
   </div>
   <div class="col-12 col-md-3 mb-1">
     <div class=" card-body">
