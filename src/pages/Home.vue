@@ -3,10 +3,20 @@ import { computed } from 'vue'
 import ProductCard from '@/components/ProductCard.vue'
 import ProductCardSkeleton from '@/components/ProductCardSkeleton.vue'
 import { useProductStore } from '@/store/products'
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
+setTimeout(() => {
+  console.log('Redirecting to home page...');
+  const r = router.push(`/`);
+}, 2000);
+
 
 const productStore = useProductStore()
 
 const products = computed(() => productStore.list)
+
 </script>
 
 <template>
